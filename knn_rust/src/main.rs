@@ -97,7 +97,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let test_values: Vec<i64> = test.columns(0, 1).iter().map(|v| *v).collect();
 
     // classify the data from the "test.csv" using the model data from "train.csv"
-    let res: Vec<(usize, Vec<usize>)> = knn(model.into(), test, values, &manhatten_distance);  // choose distance function here
+    let res: Vec<(usize, Vec<usize>)> = knn(model.into(), test, values, &quad_euclidian_distance);  // choose distance function here
 
     // count and report the misclassifications for each (k, digits)-pair in the resulting classification
     let errors: Vec<(usize, usize)> = res
