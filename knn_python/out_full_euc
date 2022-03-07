@@ -1,0 +1,6 @@
+26998 training samples, tested 15001 values, time 2269.31600689888s
+k=1:    misclassified 532/15001
+k=3:    misclassified 534/15001
+k=5:    misclassified 546/15001
+k=10:   misclassified 595/15001
+k=15:   misclassified 663/15001
