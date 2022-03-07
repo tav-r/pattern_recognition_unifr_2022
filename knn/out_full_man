@@ -1,0 +1,10 @@
+645 errors in 15001 classifications with k=1
+631 errors in 15001 classifications with k=3
+633 errors in 15001 classifications with k=5
+693 errors in 15001 classifications with k=10
+789 errors in 15001 classifications with k=15
+
+________________________________________________________
+Executed in   18.22 mins    fish           external
+   usr time   18.15 mins    0.00 millis   18.15 mins
+   sys time    0.06 mins    1.14 millis    0.06 mins
