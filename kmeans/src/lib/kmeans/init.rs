@@ -24,11 +24,11 @@ fn max_min<'a>(s: &'a Vec<DVector<f64>>, m: &'a Vec<DVector<f64>>) -> &'a DVecto
         .unwrap()
 }
 
-// spanning selection for initial clustering, used by deterministic K-Means
 pub fn span_clusters(
     train: &Vec<DVector<f64>>,
     n_clusters: usize
 ) -> Vec<DVector<f64>> {
+    // spanning selection for initial clustering, used by deterministic K-Means
     (1..n_clusters).into_iter().fold(
         vec![&train.iter()  // start with central vector
             .skip(1)

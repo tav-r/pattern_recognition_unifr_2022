@@ -8,7 +8,7 @@ fn main() -> Result<(), Box<dyn Error>>{
     let clustering = cluster::deterministic_kmeans(
         train.rows(1, train.nrows()-1)
         .column_iter()
-        .map(|r| r.into()).collect(), 9
+        .map(|r| r.into()).collect(), 15
     );
 
     for (i, cluster) in clustering.iter().enumerate() {

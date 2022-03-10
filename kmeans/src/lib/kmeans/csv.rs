@@ -2,6 +2,8 @@ use nalgebra::DMatrix;
 use std::fs;
 
 pub fn load_csv(filepath: &str) -> Result<DMatrix<f64>, &str> {
+    // load csv at given path as DMatrix
+
     fs::read_to_string(filepath)
         .and_then(|c| Ok(c.split("\n").map(|l| l.trim()).filter(|l| l.len() > 0).map(
             |l| l.split(",")

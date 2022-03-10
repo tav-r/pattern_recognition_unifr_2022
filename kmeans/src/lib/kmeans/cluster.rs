@@ -2,6 +2,8 @@ use nalgebra::DVector;
 use super::{init::span_clusters, distance};
 
 fn calculate_centers(clustering: &Vec<Vec<&DVector<f64>>>) -> Vec<DVector<f64>> {
+    // calculate the centers of given clusters
+
     clustering.iter()
         .map(|cluster| {
             cluster.iter()
@@ -13,6 +15,8 @@ fn calculate_centers(clustering: &Vec<Vec<&DVector<f64>>>) -> Vec<DVector<f64>> 
 }
 
 fn assign(v: &DVector<f64>, centers: Vec<(usize, &DVector<f64>)>) -> usize {
+    // return the index of the center nearest to the given vector
+
     let distances: Vec<(&usize, f64)> = centers.iter()
         .map(|(i, c)| (i, distance(&v, c)))
         .collect();
@@ -29,6 +33,9 @@ fn assign(v: &DVector<f64>, centers: Vec<(usize, &DVector<f64>)>) -> usize {
 }
 
 fn cluster<'a>(train: &'a Vec<DVector<f64>>, centers: &Vec<DVector<f64>>) -> Vec<Vec<&'a DVector<f64>>> {
+    // build clusters around given centers, put each vector in train into the cluster it belongs to
+    // i.e., into the cluster with the closest center
+
     train.iter()
         .fold(
             vec![vec![]; centers.len()],
@@ -45,7 +52,9 @@ fn cluster<'a>(train: &'a Vec<DVector<f64>>, centers: &Vec<DVector<f64>>) -> Vec
         )
 }
 
-fn eq_cluster(left: &Vec<Vec<&DVector<f64>>>, right: &Vec<Vec<&DVector<f64>>>) -> bool {
+fn eq_clustering(left: &Vec<Vec<&DVector<f64>>>, right: &Vec<Vec<&DVector<f64>>>) -> bool {
+    // check if two clusterings are the same
+
     left.iter()
         .zip(right.iter())
         .map(|(a, b)| a.iter()
@@ -60,6 +69,8 @@ fn eq_cluster(left: &Vec<Vec<&DVector<f64>>>, right: &Vec<Vec<&DVector<f64>>>) -
 }
 
 pub fn deterministic_kmeans(train: Vec<DVector<f64>>, k: usize) -> Vec<Vec<DVector<f64>>> {
+    // Returns a clustering of the given vectors in train with k clusters
+
     let mut centers;
     let mut clustering;
 
@@ -71,7 +82,7 @@ pub fn deterministic_kmeans(train: Vec<DVector<f64>>, k: usize) -> Vec<Vec<DVect
         clustering = cluster(&train, &centers);
         centers = calculate_centers(&clustering);
 
-        if eq_cluster(&old, &clustering) {
+        if eq_clustering(&old, &clustering) {
             break;
         }
     }
