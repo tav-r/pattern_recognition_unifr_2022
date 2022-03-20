@@ -1,0 +1,29 @@
+k=5
+Davis-Bouldin-Index of clustering 4.3421849740169325
+Dunn-Index of clustering 0.022561800250525982
+
+k=7
+Davis-Bouldin-Index of clustering 4.414192400888522
+Dunn-Index of clustering 0.01305899043776368
+
+k=9
+Davis-Bouldin-Index of clustering 4.269731277762435
+Dunn-Index of clustering 0.026077419963665645
+
+k=10
+Davis-Bouldin-Index of clustering 4.244714585558978
+Dunn-Index of clustering 0.02311466332850109
+
+k=12
+Davis-Bouldin-Index of clustering 4.099509531766835
+Dunn-Index of clustering 0.02231755203740108
+
+k=15
+Davis-Bouldin-Index of clustering 3.9286906512038864
+Dunn-Index of clustering 0.0076528158342498605
+
+
+________________________________________________________
+Executed in   18.94 mins    fish           external
+   usr time   18.91 mins  573.00 micros   18.91 mins
+   sys time    0.00 mins  312.00 micros    0.00 mins
